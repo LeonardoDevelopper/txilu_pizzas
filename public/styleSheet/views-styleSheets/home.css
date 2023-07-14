@@ -1,0 +1,120 @@
+.container-main{
+    padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.container-header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.btn-navigaor{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
+}
+
+.content-location{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-left: -190px;
+}
+.container-category{
+    overflow-x: scroll;
+    padding: 30px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container-suge{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-suge{
+    width: 85%;
+    gap: 10px;
+    background-color: tomato;
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-suge-info{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.big-pizza{
+    margin-top: -10px;
+    box-shadow: 5px 10px 20px rgba(0,0,0,0.4);
+    border-radius: 100px;
+    width: 120px;
+    height: 120px;
+}
+.container-row-pizza{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: scroll;
+}
+.container-pizza{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-pizza{
+    width: 160px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+.content-info-pizza{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.content-descont{
+    position: absolute;
+    background-color: tomato;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -205px;
+    margin-left: 125px;
+}

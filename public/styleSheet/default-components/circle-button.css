@@ -1,0 +1,19 @@
+.circle-btn-default{
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    background-color: tomato;
+
+}
+.circle-btn-silver{
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    background-color: rgb(209, 209, 209);
+
+}
+img{
+    border: none;
+}

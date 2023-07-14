@@ -6,13 +6,25 @@
     <link rel="stylesheet" href="/public/styleSheet/default-config/config.css">
     <link rel="stylesheet" href="/public/styleSheet/default-colors/colorDefault.css">
     <link rel="stylesheet" href="/public/styleSheet/default-fontStyle/default-fontFamily.css">
-    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/sig-in.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/default-input.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/default-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/container-poupup.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-gif-load.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/sig-in.css">
 </head>
-<body>
+<body style="background-color: tomato;">
+
+    <section id="containerPoupup">
+        <div class="content-loading">
+            <h3 class="color-white">
+                criando conta
+            </h3>
+            <img class="loading" src="/public/img/ico/Dual Ring-1s-200px.gif" alt="">
+        </div>
+
+    </section>
     <div class="container-main">
-        <span style="font-size: 25px; margin-left: -200px; margin-top: -10px;" class="color-white"> Criar conta</span>
+        <span style="font-size: 25px; margin-left: -200px; margin-top: -50px ; margin-bottom: 60px;" class="color-white"> Criar conta</span>
         <div class="container-logo">
             <img class="small-logo" src="/public/img/logo/logo.png" alt="">
         </div>
@@ -23,18 +35,30 @@
             </div>
             <div class="content-input">
                 <img src="/public/img/ico/icons8_user_16.png" alt="">
-                <input placeholder="nome" class="input" type="text">
+                <input placeholder="email" class="input" type="text">
             </div>
             <div class="content-input">
                 <img src="/public/img/ico/icons8_user_16.png" alt="">
-                <input placeholder="nome" class="input" type="text">
+                <input placeholder="numero" class="input" type="text">
             </div>
             <div class="content-input">
                 <img src="/public/img/ico/icons8_user_16.png" alt="">
-                <input placeholder="nome" class="input" type="text">
+                <input placeholder="senha" class="input" type="text">
             </div>
-            <button class="button">Criar</button>
+            <button id="btnCriar" class="button">Criar</button>
         </div>
     </div>
+    <script>
+        const containerPoupup = document.getElementById("containerPoupup")
+        const btnCriar = document.getElementById("btnCriar");
+        btnCriar.addEventListener("click", () =>{ 
+            containerPoupup.style.display = "flex"
+            setTimeout(() => {
+                containerPoupup.style.display = "none"
+
+                window.location.href = "/views/home.html"
+            }, 4000);
+        })
+    </script>
 </body>
 </html>
