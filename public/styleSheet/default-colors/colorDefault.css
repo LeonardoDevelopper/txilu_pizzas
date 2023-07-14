@@ -1,0 +1,21 @@
+.color-white{
+    color: white;
+}
+body{
+    background-color: tomato;
+}
+.color-default-tomato{
+    color: tomato;
+}
+.color-default-silver{
+    color: silver;
+}
+.backgroundColor-white{
+    color: white;
+}
+.backgroundColor-default-tomato{
+    color: tomato;
+}
+.backgroundColor-default-silver{
+    color: silver;
+}
