@@ -1,3 +1,4 @@
+
 .container-main{
     padding-bottom: 20px;
     width: 100%;
@@ -36,7 +37,6 @@
     margin-left: -190px;
 }
 .container-category{
-    overflow-x: scroll;
     padding: 30px;
     width: 300px;
     display: flex;
@@ -70,33 +70,52 @@
 }
 
 .big-pizza{
+    
     margin-top: -10px;
     box-shadow: 5px 10px 20px rgba(0,0,0,0.4);
     border-radius: 100px;
     width: 120px;
     height: 120px;
+    transition: all 1s;
+}
+.container-all-pizza{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 .container-row-pizza{
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 12px;
     overflow-x: scroll;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .container-pizza{
+    
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 1s;
+}
+.content-pizza:hover{
+    transition: all 1s;
+    box-shadow: 0px 0px 10px rgba(130, 130, 130, 0.2);
+    
+}
+.content-pizza:active{
+    transform: scale(0.1);
+    transition: all 1s;
 }
 
 .content-pizza{
-    width: 160px;
+    width: 150px;
+    margin: 0px;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.1);
     padding: 15px;
 }
 .content-info-pizza{
@@ -117,4 +136,23 @@
     align-items: center;
     margin-top: -205px;
     margin-left: 125px;
+}
+
+.container-info{
+    position: fixed;
+    background-color: #f8f8f8;
+    width: 100%;
+    height: 130vh;
+    margin-top: -206vh;
+    
+    display: none;z-index: 100px;
+}
+
+.content-photo-name{
+    
+    margin-top: 25vh;
+    border-radius: 80px;
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
