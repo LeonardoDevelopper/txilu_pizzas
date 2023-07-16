@@ -82,6 +82,24 @@
             <button id="btnCloseInfo" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
             <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
         </div>
+        <img class="photoPizza" src="" alt="">
+        <h2 class="color-default-tomato">${pz.nome}</h3>
+        <div class="content-info">
+            <div id="containerSize" class="container-size"></div>
+            <div class="content-price">
+                <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
+            </div>
+            <div class="more-button">
+                <button id="btnPedir"  class="control-button">pedir</button>
+            </div>
+            <div class="more-info">
+                <h3>Descrição</h3>
+                <h4 class="color-default-silver">
+                    ${pz.descricao}
+                </h4>
+                <h3 class="color-default-tomato">avaliacao</h3>
+            </div>
+    </div>`
         
     </nav>
     <script>
@@ -155,13 +173,7 @@
                     </div>`)
                 }))    
             })
-            // tamanho.forEach((el, ind) => {
-            //     containerSize.innerHTML += `<div id="${ind}" onClick ="select(this)" class="content-size">
-            //         <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
-            //         <h6 class="color-white">${el*4}, kz</h5>
-            //         <h6 class="color-white">${el} pedaços</h6>
-            //     </div>`    
-            // })
+             
             
             containerAll.forEach(el => {
                 containerAllPizza.innerHTML += el      
@@ -178,40 +190,59 @@
 
             }
             function getInfo(element) {
-                console.log(element.id)
-                const searchPizza = pizzas.forEach(pz => {
-                    if(pz.id == element.id){
-                        console.log("OLA")
-                        //não está a entrar aqui!
-                        containerInfo.innerHTML += `<img class="photoPizza" src="${pz.path}" alt="">
-                            <h2 class="color-default-tomato">${pz.nome}</h3>
-                            <div class="content-info">
-                                <div id="containerSize" class="container-size"></div>
-                                <div class="content-price">
-                                    <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
+                pizzas.forEach((cat) => {
+                    cat.forEach(pz => {
+                        console.log(pz.nome)
+                        if(pz.id == element.id){
+                            //não está a entrar aqui!
+                             containerInfo.innerHTML = `
+                             <div class="controls">
+                                <button id="btnCloseInfo" onClick="closeInfo()" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
+                                <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
+                            </div>
+                             <img class="photoPizza" src="${pz.path}" alt="">
+                                 <h2 class="color-default-tomato">${pz.nome}</h3>
+                                 <div class="content-info">
+                                     <div id="containerSize" class="container-size">
+                                        <div id="${""}" onClick ="select(this)" class="content-size">
+                                    <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
+                                    <h6 class="color-white">${""}, kz</h5>
+                                    <h6 class="color-white">${""} pedaços</h6>
                                 </div>
-                                <div class="more-button">
-                                    <button id="btnPedir"  class="control-button">pedir</button>
-                                </div>
-                                <div class="more-info">
-                                    <h3>Descrição</h3>
-                                    <h4 class="color-default-silver">
-                                        ${pz.descricao}
-                                    </h4>
-                                    <h3 class="color-default-tomato">avaliacao</h3>
-                                </div>
-                        </div>`
-                    }
-                })
+                                    </div>
+                                     <div class="content-price">
+                                         <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
+                                     </div>
+                                     <div class="more-button">
+                                         <button id="btnPedir"  class="control-button">pedir</button>
+                                     </div>
+                                     <div class="more-info">
+                                         <h3>Descrição</h3>
+                                         <h4 class="color-default-silver">
+                                             ${pz.descricao}
+                                         </h4>
+                                         <h3 class="color-default-tomato">avaliacao</h3>
+                                     </div>
+                             </div>`
+                            // tamanho.map((el) => {
+                            //     containerSize.innerHTML += `<div id="${ind}" onClick ="select(this)" class="content-size">
+                            //         <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
+                            //         <h6 class="color-white">${el*4}, kz</h5>
+                            //         <h6 class="color-white">${el} pedaços</h6>
+                            //     </div>`    
+                            // })
+                        }
+                    })
+                }) 
                 element.children[0].style.margin = "0px"
                 containerInfo.style.display = "flex"
 
             }
-    
-            btnCloseInfo.addEventListener("click", () => {
+            function closeInfo() {
                 containerInfo.style.display = "none"
                 containerInfo.style.transition = "all 2s"
-            })
+                
+            }
             // btnPedir.addEventListener("click", () => {
             //     if(btnPedir.style.backgroundColor == "tomato")
             //         window.location.href = "/views/addLocation"
