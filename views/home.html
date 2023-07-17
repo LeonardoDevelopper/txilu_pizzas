@@ -62,15 +62,8 @@
 
             </div>
         </div>
-        <div class="container-suge">
-            <div class="content-suge">  
-                <div class="content-suge-info">
-                    <h4 class="color-white">Acabadinha de sair do forno</h5>
-                    <button class="radius-btn">Fazer pedido</button>
-                </div>
-                <img id="img-suge" class="big-pizza" src="/public/img/pizza/pizza14.jpg" alt="">
-
-            </div>
+        <div id="containerSuge" class="container-suge">
+            
         </div>
         <div id="containerAllPizza" class="container-all-pizza"> </div>
             
@@ -79,27 +72,11 @@
     </div>
     <nav id="containerInfo" class="container-info">
         <div class="controls">
-            <button id="btnCloseInfo" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
+            <button id="btnCloseInfo" onclick="closeInfo()" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
             <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
         </div>
-        <img class="photoPizza" src="" alt="">
-        <h2 class="color-default-tomato">${pz.nome}</h3>
-        <div class="content-info">
-            <div id="containerSize" class="container-size"></div>
-            <div class="content-price">
-                <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
-            </div>
-            <div class="more-button">
-                <button id="btnPedir"  class="control-button">pedir</button>
-            </div>
-            <div class="more-info">
-                <h3>Descrição</h3>
-                <h4 class="color-default-silver">
-                    ${pz.descricao}
-                </h4>
-                <h3 class="color-default-tomato">avaliacao</h3>
-            </div>
-    </div>`
+        
+    </div>
         
     </nav>
     <script>
@@ -140,10 +117,10 @@
                         category: "Frutos do mar",
                         pizzas: [
                             { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza11.jpg" , nome: "pizza de salomão", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza12.jpg" , nome: "pizza de ", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza13.jpg" , nome: "pizza ", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza14.jpg" , nome: "pizza ", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza15.jpg" , nome: "pizza ", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza12.jpg" , nome: "pizza de Carne ", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza13.jpg" , nome: "pizza de queijo", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza14.jpg" , nome: "pizza de marisco", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza15.jpg" , nome: "pizza de Legumes", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
                         ]
                     }
 
@@ -180,9 +157,11 @@
             })
             function select(element) {
                 element.style.transition = "0.3s"
-                const elements = containerSize.children
-                for (let i = 0; i < elements.length; i++) {
-                    elements[i].style.backgroundColor = "#d1d0d0"                         
+                const containerSize = document.getElementById("containerSize") 
+                const price = document.getElementById("price")
+                const btnPedir = document.getElementById("btnPedir")
+                for (let i = 0; i < containerSize.children.length; i++) {
+                    containerSize.children[i].style.backgroundColor = "silver"                         
                 }
                 element.style.backgroundColor = "tomato"
                 price.innerHTML = "Total:" + (1200*element.id) + ", 00kz"
@@ -194,22 +173,36 @@
                     cat.forEach(pz => {
                         console.log(pz.nome)
                         if(pz.id == element.id){
-                            //não está a entrar aqui!
                              containerInfo.innerHTML = `
-                             <div class="controls">
-                                <button id="btnCloseInfo" onClick="closeInfo()" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
-                                <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
+                             
+                            <div class="content-photo-name" style="background-image: url('${pz.path}');">
                             </div>
-                             <img class="photoPizza" src="${pz.path}" alt="">
-                                 <h2 class="color-default-tomato">${pz.nome}</h3>
-                                 <div class="content-info">
-                                     <div id="containerSize" class="container-size">
-                                        <div id="${""}" onClick ="select(this)" class="content-size">
-                                    <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
-                                    <h6 class="color-white">${""}, kz</h5>
-                                    <h6 class="color-white">${""} pedaços</h6>
-                                </div>
+                            <div class="controls">
+                                <div class="c">
+                                    <button id="btnCloseInfo" onClick="closeInfo()" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
+                                <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
                                     </div>
+                                
+                                <div class="focus">
+                                    <img class="photoPizza" src="${pz.path}" alt="">
+                                    </div>
+                                    </div>
+                                    <div id="contentInfo" class="content-info">
+                                    <div class="content-name">
+                                        <h2 class="color-default-tomato">${pz.nome}</h3>
+
+                                    </div>
+                                    <div id="containerSize" class="container-size">
+                                        `+
+                                        tamanho.map((el) => { return(
+                                        `<div id="${el}" onClick ="select(this)" class="content-size">
+                                            <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
+                                            <h6 class="color-white">${el*4}, kz</h5>
+                                            <h6 class="color-white">${el} pedaços</h6>
+                                        </div>`)
+                                        }) + `
+                                    </div>
+                                    
                                      <div class="content-price">
                                          <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
                                      </div>
@@ -224,18 +217,16 @@
                                          <h3 class="color-default-tomato">avaliacao</h3>
                                      </div>
                              </div>`
-                            // tamanho.map((el) => {
-                            //     containerSize.innerHTML += `<div id="${ind}" onClick ="select(this)" class="content-size">
-                            //         <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
-                            //         <h6 class="color-white">${el*4}, kz</h5>
-                            //         <h6 class="color-white">${el} pedaços</h6>
-                            //     </div>`    
-                            // })
-                        }
-                    })
-                }) 
-                element.children[0].style.margin = "0px"
+                            }
+                        })
+                })
+                
                 containerInfo.style.display = "flex"
+                const btnPedir =  document.getElementById("btnPedir")
+                btnPedir.addEventListener("click", () => {
+                 if(btnPedir.style.backgroundColor == "tomato")
+                     window.location.href = "/views/addLocation"
+             })
 
             }
             function closeInfo() {
@@ -243,19 +234,34 @@
                 containerInfo.style.transition = "all 2s"
                 
             }
-            // btnPedir.addEventListener("click", () => {
-            //     if(btnPedir.style.backgroundColor == "tomato")
-            //         window.location.href = "/views/addLocation"
 
-                    
-            // })
+            var cat = Math.random() * 3
+            var pz = Math.random() * 5
+            const containerSuge = document.getElementById("containerSuge")
+
+            containerSuge.innerHTML = `<div class="content-suge">  
+                <div class="content-suge-info">
+                    <h4 class="color-white">Acabadinha de sair do forno</h5>
+                    <button id="${product.at(cat).pizzas.at(pz).id}" onclick="getInfo(this)" class="radius-btn">Fazer pedido</button>
+                </div>
+                <img id="img-suge" class="big-pizza" src="${product.at(cat).pizzas.at(pz).path}" alt="">
+            </div>`
         setInterval(() => {
-            const p = Math.random() * 10
-            console.log(parseInt(p))
-            //imgSuge.src = path.at(p)
-            //imgSuge.style.transition ="1s"
-            //imgSuge.style.transform ="rotate(90deg)"
+            cat = Math.random() * 3
+            pz = Math.random() * 5
+            containerSuge.innerHTML = `<div class="content-suge">  
+                <div class="content-suge-info">
+                    <h4 class="color-white">Acabadinha de sair do forno</h5>
+                    <button id="${product.at(cat).pizzas.at(pz).id}" onclick="getInfo(this)" class="radius-btn">Fazer pedido</button>
+                </div>
+                <img id="img-suge" class="big-pizza" src="${product.at(cat).pizzas.at(pz).path}" alt="">
+            </div>` 
         }, 3000);
+        window.addEventListener("scroll", (event) => {
+            console.log(window.scrollY)
+            if(window.scrollY >= 184)
+                document.getElementById("containerInfo").style.position = "fixed"
+        })
         
 
     </script>
