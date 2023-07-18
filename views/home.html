@@ -21,7 +21,7 @@
         <div class="container-header">
             <div class="btn-navigaor">
                 <button class="control-button"><img src="/public/img/ico/icons8_squared_menu_32.png" alt=""></button>
-                <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
+                <a href="/views/cart.html"><button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button></a>
             </div>
             <div class="content-location">
                 <img src="/public/img/ico/icons8_Location_32.png" alt="">
@@ -77,7 +77,6 @@
         </div>
         
     </div>
-        
     </nav>
     <script>
         const imgSuge = document.getElementById("img-suge")
@@ -139,10 +138,11 @@
                             <div class="content-info-pizza">
                                 <h4 class="color-default-tomato">${pz.nome}</h4>
                                 <h5 class="color-default-tomato">${pz.preco}, 00kz</h5>
-                                <del><h6>${ (pz.preco - ( pz.preco * (parseInt(Math.random()*20)/100))) },00kz</h6></del>
+                                <!---<del><h6>${ (pz.preco - ( pz.preco * (parseInt(Math.random()*20)/100))) },00kz</h6></del>--->
                                 <div class="container-rate">
-                                    <h5>${Math.random()*6}</h5>
-            
+                                    ${rates(parseInt(Math.random() *5))}
+                                    
+                                    <!---<img src="/public/img/ico/icons8_stars_16.png" alt="">-->
                                 </div>
                             </div>
                             
@@ -151,7 +151,22 @@
                 }))    
             })
              
-            
+                function rates(value) {
+                    (value == 0? value += 1: value = value)
+                    let rate = `<img src="/public/img/ico/icons8_star_16.png" alt="">`
+                    for (let i = 1; i < 5; i++) {
+                        if(i == value){
+                            rate += `<img src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
+                        }
+                        else if(i < value){
+
+                            rate += `<img src="/public/img/ico/icons8_star_16.png" alt="">`
+                        }else{
+                            rate += `<img src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
+                        }
+                    }
+                    return rate + value
+                }
             containerAll.forEach(el => {
                 containerAllPizza.innerHTML += el      
             })
@@ -207,7 +222,7 @@
                                          <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
                                      </div>
                                      <div class="more-button">
-                                         <button id="btnPedir"  class="control-button">pedir</button>
+                                         <button id="btnPedir"  class="radius-btn">pedir</button>
                                      </div>
                                      <div class="more-info">
                                          <h3>Descrição</h3>
@@ -215,6 +230,9 @@
                                              ${pz.descricao}
                                          </h4>
                                          <h3 class="color-default-tomato">avaliacao</h3>
+                                         <div class="container-rate">
+                                            ${rates(parseInt(pz.avaliacao))}                                    
+                                        </div>
                                      </div>
                              </div>`
                             }
@@ -225,7 +243,7 @@
                 const btnPedir =  document.getElementById("btnPedir")
                 btnPedir.addEventListener("click", () => {
                  if(btnPedir.style.backgroundColor == "tomato")
-                     window.location.href = "/views/addLocation"
+                     window.location.href = "/views/addLocation.html"
              })
 
             }

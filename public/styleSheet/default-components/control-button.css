@@ -1,4 +1,9 @@
 .control-button{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
