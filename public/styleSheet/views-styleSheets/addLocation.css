@@ -1,0 +1,76 @@
+.container-main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+.container-header{
+width: 100%;
+}
+
+.btn-navigaor{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 200px;
+
+}
+.container-from-to{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+
+}
+.content-from {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.content-to{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.arrow{
+    transform: rotate(45deg);
+    margin-left: -310px;
+}
+.content-search-on-map{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.container-local-delivery{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+
+}
+.content-row-local-delivery{
+    width: 370px;
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+
+}
+.content-local-delivery{
+    background-color: silver;
+    width: 80px;
+    height: 90px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

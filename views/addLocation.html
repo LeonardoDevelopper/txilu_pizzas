@@ -4,8 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="/public/styleSheet/default-colors/colorDefault.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-config/config.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-fontStyle/default-fontFamily.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-input.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/container-poupup.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-gif-load.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/circle-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/addLocation.css">
 </head>
-<body>
-    
+<body style="background-color: #f8f8f8;">
+    <div class="container-main">
+        <div class="container-header">
+            <div class="btn-navigaor">
+                <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
+                <a href="/views/addLocation.html"><button class="control-button" id="buyButton"><img src="/public/img/ico/icons8_map_marker_32.png" alt=""></button></a>
+            </div>
+            
+        </div>
+        <div class="container-from-to">
+            <h3 class="color-default-tomato">Diz-nos onde voce está</h3>
+            <div class="content-from">
+                <h6 class="color-default-tomato">De</h6>
+                <div class="content-input">
+                    <img src="/public/img/ico/icons8_shop_16.png" alt="">
+                    <input placeholder="" class="input" type="text" value="Angola, Luanda, Cuca">
+                </div>
+
+            </div>
+            <img class="arrow" src="/public/img/ico/icons8_down_right_32.png" alt="">
+            <div class="content-to">
+                <h6 class="color-default-tomato">Pra</h6>
+                <div class="content-input">
+                    <img src="/public/img/ico/icons8_Location_16.png" alt="">
+                    <input placeholder="digite seu endereço" class="input" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="content-search-on-map">
+            <h4 class="color-default-tomato">Não sabe onde está?</h5>
+            <h5 class="color-default-silver"> Experimente marcar no mapa</h6>
+        </div>
+        <div class="container-local-delivery">
+            <h5  class="color-default-tomato">Seus locais de entrega</h5>
+            <div class="content-row-local-delivery">
+                <div class="content-local-delivery">
+                    <img src="/public/img/ico/icons8_place_marker_32.png" alt="">
+                    <h5 class="color-white">Casa</h6>
+                </div>
+                <div class="content-local-delivery">
+                    <img src="/public/img/ico/icons8_place_marker_32.png" alt="">
+                    <h5 class="color-white">Escola</h6>
+                </div>
+                <div class="content-local-delivery">
+                    <img src="/public/img/ico/icons8_place_marker_32.png" alt="">
+                    <h5 class="color-white">Escola</h6>
+                </div>
+               
+                
+        </div>
+        <div class="content-favorites-delivers">
+
+        </div>
+    </div>
 </body>
 </html>

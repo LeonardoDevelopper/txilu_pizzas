@@ -25,22 +25,22 @@
             </div>
             <div class="content-info">
                 <h3 class="color-default-tomato">Prrodutos no <br> carrinho</h5>
-                <h3 class="color-default-tomato">Total: 7500, 00kz</h5>
+                <h3 id="total" class="color-default-tomato">Total: 7500, 00kz</h5>
             </div>
         </div>
         <div class="container-products-cart">
             <div class="select">
-                <h4 class="color-default-tomato">Selecionar todos <input type="checkbox" class="checkbox" name="" id=""></h4>
+                <h4 class="color-default-tomato">Selecionar todos <input id="selectAll" type="checkbox" class="checkbox" name="" id=""></h4>
             </div>
-            <div class="container-pizza-column">
-                <div class="container-pizza">
+            <div id="containerPizzaColumn" class="container-pizza-column">
+                <div onclick="selected(this)" class="container-pizza">
                     <div style="background-color: rgb(204, 204, 204);" class="content-pizza">
                         <div class="info">
                             <div class="info-txt">
                                 <h4 class="color-white"> Pizza margarine</h4>
                                 <h4 class="color-white">4500, 00kz</h4>
                             </div>
-                            <div style="display: none;" content-number>
+                            <div style="display: none;" class="content-number" >
                                 <button class="btnNumber">-</button>
                                 <h5 class="txt-number">1</h5>
                                 <button class="btnNumber">+</button>
@@ -50,7 +50,7 @@
                         <img class="big-pizza" src="/public/img/pizza/pizza18.jpg" alt="">
                     </div>
                 </div>
-                <div class="container-pizza">
+                <div onclick="selected(this)" class="container-pizza">
                     <div  class="content-pizza">
                         <div class="info">
                             <div class="info-txt">
@@ -67,14 +67,14 @@
                         <img class="big-pizza" src="/public/img/pizza/pizza11.jpg" alt="">
                     </div>
                 </div>
-                <div class="container-pizza">
+                <div onclick="selected(this)" class="container-pizza">
                     <div style="background-color: rgb(204, 204, 204);" class="content-pizza">
                         <div class="info">
                             <div class="info-txt">
                                 <h4 class="color-white"> Pizza margarine</h4>
                                 <h4 class="color-white">4500, 00kz</h4>
                             </div>
-                            <div style="display: none;" content-number>
+                            <div style="display: none;" class="content-number" >
                                 <button class="btnNumber">-</button>
                                 <h5 class="txt-number">1</h5>
                                 <button class="btnNumber">+</button>
@@ -89,9 +89,40 @@
     </div>
     <script>
         const btnBack = document.getElementById("btnBack")
+        const total = document.getElementById("total")
+        const selectAll = document.getElementById("selectAll")
+        const containerPizzaColumn = document.getElementById("containerPizzaColumn")
+        selectAll.addEventListener("change", () => {
+            if(selectAll.checked)
+            {
+                for (let i = 0; i < containerPizzaColumn.children.length; i++) {
+                    containerPizzaColumn.children[i].children[0].children[0].children[1].style.display = "flex"
+                    containerPizzaColumn.children[i].children[0].style.backgroundColor = "tomato";
+                }
+
+            }else{
+                for (let i = 0; i < containerPizzaColumn.children.length; i++) {
+                    containerPizzaColumn.children[i].children[0].children[0].children[1].style.display = "none"
+                    containerPizzaColumn.children[i].children[0].style.backgroundColor = "silver";
+                }
+            }
+        })
+        function selected(element) {            
+            if(element.children[0].style.backgroundColor == "tomato"){
+                element.children[0].style.backgroundColor = "silver"
+                element.children[0].children[0].children[1].style.display = "none"
+            }else{
+                element.children[0].style.backgroundColor = "tomato"
+                element.children[0].children[0].children[1].style.display = "flex"
+                element.children[0].children[0].children[1].style.transition = "1s"
+
+            }
+            
+        }
         btnBack.addEventListener("click", () => {
             window.location.href = "/views/home.html"
         })
+
     </script>
 </body>
 </html>
