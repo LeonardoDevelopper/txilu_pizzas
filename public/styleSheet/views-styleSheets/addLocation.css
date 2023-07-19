@@ -1,7 +1,7 @@
 .container-main{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
     align-items: center;
 
@@ -26,7 +26,7 @@ width: 100%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 
 }
 .content-from {
@@ -48,13 +48,12 @@ width: 100%;
 .content-search-on-map{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 .container-local-delivery{
     display: flex;
     flex-direction: column;
     gap: 15px;
-
 
 }
 .content-row-local-delivery{
@@ -67,10 +66,55 @@ width: 100%;
 .content-local-delivery{
     background-color: silver;
     width: 80px;
-    height: 90px;
+    height: 80px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.content-search-on-map{
+    margin-left: -100px;
+}
+.container-favorites-delivers{
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.content-row-favorites-delivers{
+    width: 370px;
+    display: flex;
+    gap: 10px;
+
+}
+.content-favorites-delivers{
+    background-color: silver;
+    width: 180px;
+    height: 100px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.photo-name{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.small-photo{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+
+}
+.container-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }

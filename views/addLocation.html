@@ -21,12 +21,12 @@
         <div class="container-header">
             <div class="btn-navigaor">
                 <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
-                <a href="/views/addLocation.html"><button class="control-button" id="buyButton"><img src="/public/img/ico/icons8_map_marker_32.png" alt=""></button></a>
+                <a href="/views/markOnMap.html"><button class="control-button" id="buyButton"><img src="/public/img/ico/icons8_map_marker_32.png" alt=""></button></a>
             </div>
             
         </div>
         <div class="container-from-to">
-            <h3 class="color-default-tomato">Diz-nos onde voce está</h3>
+            <h3 style="margin-left: -100px;" class="color-default-tomato">Diz-nos onde voce está</h3>
             <div class="content-from">
                 <h6 class="color-default-tomato">De</h6>
                 <div class="content-input">
@@ -40,7 +40,7 @@
                 <h6 class="color-default-tomato">Pra</h6>
                 <div class="content-input">
                     <img src="/public/img/ico/icons8_Location_16.png" alt="">
-                    <input placeholder="digite seu endereço" class="input" type="text">
+                    <input id="txtAdress" placeholder="digite seu endereço" class="input" type="text">
                 </div>
             </div>
         </div>
@@ -49,26 +49,105 @@
             <h5 class="color-default-silver"> Experimente marcar no mapa</h6>
         </div>
         <div class="container-local-delivery">
-            <h5  class="color-default-tomato">Seus locais de entrega</h5>
-            <div class="content-row-local-delivery">
-                <div class="content-local-delivery">
+            <h5 style="margin-left: 45px;" class="color-default-tomato">Seus locais de entrega</h5>
+            <div id="contentRowLocalDelivery" class="content-row-local-delivery">
+                <div onclick="selectLocal(this)" class="content-local-delivery">
                     <img src="/public/img/ico/icons8_place_marker_32.png" alt="">
                     <h5 class="color-white">Casa</h6>
                 </div>
-                <div class="content-local-delivery">
+                <div onclick="selectLocal(this)" class="content-local-delivery">
                     <img src="/public/img/ico/icons8_place_marker_32.png" alt="">
                     <h5 class="color-white">Escola</h6>
                 </div>
-                <div class="content-local-delivery">
+                <div onclick="selectLocal(this)" class="content-local-delivery">
                     <img src="/public/img/ico/icons8_place_marker_32.png" alt="">
                     <h5 class="color-white">Escola</h6>
                 </div>
                
-                
+            </div>
+        
         </div>
-        <div class="content-favorites-delivers">
+        <div class="container-favorites-delivers">
+            <h5 style="margin-left: 45px;" class="color-default-tomato">Seus entragadores favoritos</h5>
+            <div id="ContentRowFavoritesDelivers" class="content-row-favorites-delivers">
+                <div onclick="selectDeliver(this)" class="content-favorites-delivers">
+                    <div class="photo-name">
+                        <img class="small-photo" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg" alt="">
+                        <h5 class="color-white">Leonardo Jorge</h6>
+                    </div>
+                    <div class="rate">
+                        <img src="/public/img/ico/icons8_starw_16.png_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_16.png_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_16.png_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_empty_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_empty_16.png" alt="">
+                        
+                    </div>
+                </div>
+                <div onclick="selectDeliver(this)" class="content-favorites-delivers">
+                    <div class="photo-name">
+                        <img class="small-photo" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg" alt="">
+                        <h5 class="color-white">Leonardo Jorge</h6>
+                    </div>
+                    <div class="rate">
+                        <img src="/public/img/ico/icons8_starw_16.png_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_16.png_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_16.png_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_empty_16.png" alt="">
+                        <img src="/public/img/ico/icons8_starw_empty_16.png" alt="">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-btn">
+            <button id="nextStep" style="background-color: silver; color: white; height: 50px;" class="radius-btn">Avançar</button>
 
         </div>
     </div>
+
+    <script>
+        const contentRowLocalDelivery = document.getElementById("contentRowLocalDelivery");
+        const ContentRowFavoritesDelivers = document.getElementById("ContentRowFavoritesDelivers")
+        const nextStep = document.getElementById("nextStep")
+        const txtAdress = document.getElementById("txtAdress")
+
+        var deliverSelected = false;
+        var localSelected = false;
+        function selectLocal(element){
+            nextStep.style.backgroundColor = "tomato"
+            nextStep.addEventListener("click", () => {
+                    window.location.href = "/views/methodPayment.html"
+                })
+            for (let i = 0; i < contentRowLocalDelivery.children.length; i++) {
+                contentRowLocalDelivery.children[i].style.backgroundColor = "silver"    
+            }
+            txtAdress.value = "Luanda, " + element.children[1].innerText
+            element.style.backgroundColor = "tomato"
+            localSelected = true
+        }
+        function selectDeliver(element){
+            for (let i = 0; i < ContentRowFavoritesDelivers.children.length; i++) {
+                ContentRowFavoritesDelivers.children[i].style.backgroundColor = "silver"    
+            }
+            element.style.backgroundColor = "tomato"
+            deliverSelected =  true
+        }
+        txtAdress.addEventListener("change", () => {
+            console.log(localSelected, deliverSelected )
+            for (let i = 0; i < contentRowLocalDelivery.children.length; i++) {
+                contentRowLocalDelivery.children[i].style.backgroundColor = "silver"    
+            }
+            if(localSelected && deliverSelected || txtAdress.value != "")
+            {
+                nextStep.style.backgroundColor = "tomato"
+                nextStep.addEventListener("click", () => {
+                    window.location.href = "/views/methodPayment.html"
+                })
+            }
+            
+        })
+
+    </script>
 </body>
 </html>

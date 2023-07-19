@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/public/styleSheet/default-colors/colorDefault.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-config/config.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-fontStyle/default-fontFamily.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-input.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/container-poupup.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/default-gif-load.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/circle-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
+    <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/markOnMap.css">
+    
+</head>
+<body>
+   
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Mapa com Leaflet</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container-main">
+        <div class="btn-navigaor">
+            <a href="/views/addLocation.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
+            <button class="control-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
+        </div>
+        <div id="map">
+          
+      </div>
+      <div  class="container-float-info">
+        <div style="margin-top: 10px;" class="content-from">
+            <div style=" gap: 65px; background-color: tomato;" class="content-input">
+                <div class="store">
+                    <img class="icoLocation" src="/public/img/ico/icons8_shopw_32.png" alt="">
+                    <h5 class="color-white">Angola, Luanda, Cuca</h5>
+                </div>
+                <button style="background-color: white; width: 45px; height: 45px;" class="circle-btn-silver"><img src="/public/img/ico/icons8_phone_32.png" alt=""></button>
+            </div>
+
+        </div>
+        <div class="content-float-info">
+            <div class="content-from-to">
+                <div class="content-from">
+                    <div class="content-input">
+                        <img class="icoLocation" src="/public/img/ico/icons8_shop_32.png" alt="">
+                        <div class="content-txt">
+                            <h6 class="color-default-silver">Nossa loja mais proxima</h4>
+                            <h5 class="color-default-tomato">Luanda, cuca</h5>
+
+                        </div>
+                    </div>
+    
+                </div>
+                <img class="arrow" src="/public/img/ico/icons8_down_right_32.png" alt="">
+                <div class="content-to">
+                    <div class="content-input">
+                        <img class="icoLocation" src="/public/img/ico/icons8_Location_32.png" alt="">
+                        <div class="content-txt">
+                            <h6 class="color-default-silver">Voce</h4>
+                            <h5 class="color-default-tomato">Sua localização actual</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="btnNext" style="height: 50px; background-color: tomato; color: white;" class="radius-btn">Avançar</button>
+        </div>
+
+      </div>
+    </div>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    const btnGetUserLocation = document.getElementById("btnGetUserLocation")
+    const btnNext = document.getElementById("btnNext")
+    const  map = L.map('map' , { zoomControl: false})
+    
+    navigator.geolocation.getCurrentPosition((position) => {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            map.setView([0,0], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            map.flyTo([latitude, longitude], 15);
+            L.marker([latitude, longitude]).addTo(map)
+          .bindPopup("Você está aqui!")
+          .openPopup();
+          
+        })
+        btnGetUserLocation.addEventListener("click", () => {
+            navigator.geolocation.getCurrentPosition((position) => {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                map.flyTo([latitude, longitude], 15)
+                L.marker([latitude, longitude]).addTo(map)
+                .bindPopup("Você está aqui!")
+                .openPopup();
+        })
+        
+    })
+    btnNext.addEventListener("click", () => {
+        window.location.href = "/views/methodPayment.html"
+    })
+  </script>
+</body>
+</html>
+
+</body>
+</html>
