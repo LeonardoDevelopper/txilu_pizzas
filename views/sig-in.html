@@ -14,7 +14,7 @@
 </head>
 <body style="background-color: tomato;">
 
-    <section id="containerPoupup">
+    <section style="margin-top: -80px;" id="containerPoupup">
         <div class="content-loading">
             <h3 class="color-white">
                 criando conta
@@ -54,10 +54,18 @@
         btnCriar.addEventListener("click", () =>{ 
             containerPoupup.style.display = "flex"
             setTimeout(() => {
-                containerPoupup.style.display = "none"
+                    containerPoupup.innerHTML = `
+                    <div class="content-loading">
+                        <h3 class="color-white">
+                            Conta criada com sucesso
+                        </h3>
+                        <img class="loading" src="/public/img/ico/icons8_ok_48.png" alt="">
+                    </div>` 
+                    setTimeout(() => {
+                        window.location.href = "/views/home.html"
 
-                window.location.href = "/views/home.html"
-            }, 4000);
+                    }, 3000)
+                }, 4000);
         })
     </script>
 </body>

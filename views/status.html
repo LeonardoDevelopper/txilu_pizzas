@@ -14,13 +14,15 @@
     <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
     <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/markOnMap.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/status.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
     <title>Mapa com Leaflet</title>
 </head>
 <body>
     <div class="container-main">
         <div class="btn-navigaor">
-            <a href="/views/addLocation.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
+            <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
             <button class="control-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
         </div>
         <div id="map">
@@ -28,13 +30,15 @@
       </div>
       <div  class="container-float-info">
         <div style="margin-top: 10px;" class="content-from">
-            <div style=" gap: 65px; background-color: tomato;" class="content-input">
+            <div style=" gap: 25px; background-color: tomato;" class="content-input">
                 <div class="store">
-                    <img class="icoLocation" src="/public/img/ico/icons8_shopw_32.png" alt="">
-                    <h5 class="color-white">Angola, Luanda, Cuca</h5>
+                    <img class="small-photo" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg" alt="">
+                    <h5 class="color-white"> Leonardo Jorge</h5>
                 </div>
                 <button style=" display: flex; justify-content: center;
-                 align-items: center; background-color: white; width: 40px; height: 40px;" class="circle-btn-silver"><img src="/public/img/ico/icons8_phone_32.png" alt=""></button>
+                 align-items: center; background-color: tomato; width: 40px; height: 40px;" class="circle-btn-silver"><img src="/public/img/ico/icons8_phone_32.png" alt=""></button>
+                 <button style=" border: none; display: flex; justify-content: center;
+                 align-items: center; background-color:tomato; width: 40px; height: 40px;"><img src="/public/img/ico/icons8_Favorite_32.png" alt=""></button>
             </div>
 
         </div>
@@ -63,7 +67,12 @@
                     </div>
                 </div>
             </div>
-            <button id="btnNext" style="height: 50px; background-color: tomato; color: white;" class="radius-btn">Avançar</button>
+            <div class="content-footer">
+                <button id="btnInfo"   class="status-btn"><img src="/public/img/ico/icons8_info_32.png" alt=""></button>
+                <button id="btnQrCode" class="status-btn"><img src="/public/img/ico/icons8_Qr_Code_32.png" alt=""></button>
+                <button id="btnCall"   class="status-btn"><img src="/public/img/ico/icons8_phones_32.png" alt=""></button>
+
+            </div>
         </div>
 
       </div>

@@ -70,7 +70,13 @@ height: 100vh;
     gap: 10px;
 }
 .store{
+    gap: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.small-photo{
+    width: 43px;
+    height: 43px;
+    border-radius: 100%;
 }

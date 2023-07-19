@@ -1,0 +1,11 @@
+.content-footer{
+    display: flex;
+    gap: 40px;
+}
+.status-btn{
+    border: none;
+    width: 60px;
+    height: 55px;
+    background-color: transparent;
+
+}

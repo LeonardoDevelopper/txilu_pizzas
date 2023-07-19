@@ -18,6 +18,15 @@
 </head>
 <body style="background-color: #f8f8f8;">
     <div class="container-main">
+        <section id="containerPoupup">
+            <div class="content-loading">
+                <h3 class="color-white">
+                    Seu pedido <br> está sendo processado
+                </h3>
+                <img class="loading" src="/public/img/ico/Dual Ring-1s-200px.gif" alt="">
+            </div>
+    
+        </section>
         <div class="container-header">
             <div class="btn-navigaor">
                 <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
@@ -38,24 +47,44 @@
                 <input placeholder="pin" class="input" type="text">
             </div>
             <img style="width: 100%;" src="/public/img/logo/metodos de pagamento.PNG" alt="">
+            <h4 class="color-default-tomato">Seus cartoes de credito</h4>
             <div class="container-row-credit-card">
                 <div class="content-credit-card">
-                    <div class="content-radio"><input class="radio" type="radio" name="" id=""></div>
-                    <h3 class="color-default-silver">0025 1343 1**** ***** **** ****</h3>
+                    <div class="content-radio"><input id="radio" class="radio" type="radio" name="" id=""></div>
+                    <h4 class="color-default-silver">0025 1343 1**** ***** **** ****</h3>
                     <div class="content-credit-card-footer">
-                        <h5>Este cartão está em nome de <br> <span class="color-default-tomato">Leonardo Jorge</span></h6>
+                        <h6>Este cartão está em nome de <br> <span class="color-default-tomato">Leonardo Jorge</span></h6>
                         <img src="/public/img/logo/visita.PNG" alt="">
-
                     </div>
-
                 </div>
-                
-                
             </div>
-            <button style="color: white; background-color: silver; height: 50px;" class="radius-btn">Concluir</button>
-
+            <button id="btnDone" style="color: white; background-color: silver; height: 50px;" class="radius-btn">Concluir</button>
         </div>
-
     </div>
+
+    <script>
+        const radio = document.getElementById("radio")
+        const btnDone = document.getElementById("btnDone")
+        const containerPoupup = document.getElementById("containerPoupup")
+        radio.addEventListener("change",() =>{
+            btnDone.style.backgroundColor = "tomato"
+            btnDone.addEventListener("click", () => {
+                containerPoupup.style.display = "flex"
+                setTimeout(() => {
+                    // containerPoupup.style.display = "none"
+                    containerPoupup.innerHTML = `
+                    <div class="content-loading">
+                        <h3 class="color-white">
+                            Pedido feito com sucesso
+                        </h3>
+                        <img class="loading" src="/public/img/ico/icons8_ok_48.png" alt="">
+                    </div>` 
+                    setTimeout(() => {
+                        window.location.href = "/views/status.html"
+                    }, 3000)
+                }, 4000);
+            })
+        })
+    </script>
 </body>
 </html>
