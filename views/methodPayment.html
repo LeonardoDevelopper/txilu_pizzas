@@ -14,17 +14,48 @@
     <link rel="stylesheet" href="/public/styleSheet/default-components/circle-button.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
-    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/addLocation.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/methodPayment.css">
 </head>
-<body>
+<body style="background-color: #f8f8f8;">
     <div class="container-main">
         <div class="container-header">
             <div class="btn-navigaor">
                 <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
-                <a href="/views/addLocation.html"><button class="control-button" id="buyButton"><img src="/public/img/ico/icons8_map_marker_32.png" alt=""></button></a>
             </div>
-            
+            <h3 class="color-default-tomato">Nossos métodos de pagamento</h4>
         </div>
+        <div class="container-input">
+            <div class="content-input">
+                <input placeholder="número do cartão" class="input" type="text">
+            </div>
+            <div class="content-input">
+                <input placeholder="CVV" class="input" type="text">
+            </div>
+            <div class="content-input">
+                <input placeholder="MM/AA" class="input" type="text">
+            </div>
+            <div class="content-input">
+                <input placeholder="pin" class="input" type="text">
+            </div>
+            <img style="width: 100%;" src="/public/img/logo/metodos de pagamento.PNG" alt="">
+            <div class="container-row-credit-card">
+                <div class="content-credit-card">
+                    <div class="content-radio"><input class="radio" type="radio" name="" id=""></div>
+                    <h3 class="color-default-silver">0025 1343 1**** ***** **** ****</h3>
+                    <div class="content-credit-card-footer">
+                        <h5>Este cartão está em nome de <br> <span class="color-default-tomato">Leonardo Jorge</span></h6>
+                        <img src="/public/img/logo/visita.PNG" alt="">
+
+                    </div>
+
+                </div>
+                
+                
+            </div>
+            <button style="color: white; background-color: silver; height: 50px;" class="radius-btn">Concluir</button>
+
+        </div>
+
     </div>
 </body>
 </html>
