@@ -165,7 +165,7 @@
                             rate += `<img src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
                         }
                     }
-                    return rate + value
+                    return rate + `<span style="color: tomato;">${value}</span>` 
                 }
             containerAll.forEach(el => {
                 containerAllPizza.innerHTML += el      
@@ -184,6 +184,10 @@
 
             }
             function getInfo(element) {
+                window.scrollTo({
+                    top: 0 // Para uma rolagem suave, adicione esta opção
+                });
+                containerInfo.focus()
                 pizzas.forEach((cat) => {
                     cat.forEach(pz => {
                         console.log(pz.nome)

@@ -58,11 +58,16 @@
             <div style=" gap: 25px; background-color: tomato;" class="content-input">
                 <div class="store">
                     <img class="small-photo" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg" alt="">
-                    <h5 class="color-white"> Leonardo Jorge</h5>
+                    <div class="content-name-rate">
+                        <h5 class="color-white"> Leonardo Jorge</h5>
+                        <div id="rate" class="container-rate">
+                            
+                        </div>
+                    </div>
                 </div>
                 <button style=" display: flex; justify-content: center;
                  align-items: center; background-color: tomato; width: 40px; height: 40px;" class="circle-btn-silver"><img src="/public/img/ico/icons8_phone_32.png" alt=""></button>
-                 <button style=" border: none; display: flex; justify-content: center;
+                 <button onclick="favorite(this)" style=" border: none; display: flex; justify-content: center;
                  align-items: center; background-color:tomato; width: 40px; height: 40px;"><img src="/public/img/ico/icons8_Favorite_32.png" alt=""></button>
             </div>
 
@@ -290,15 +295,39 @@
         const distance = earthRadius * c;
         return distance;
 }
+                            
+document.getElementById("rate").innerHTML = rates(parseInt(Math.random() *5));
 
+let activado = true
+function favorite(element) {
+    activado = !activado
+    if(!activado)
+        element.children[0].src = "/public/img/ico/icons8_Favoritep_32.png"
+    else
+        element.children[0].src = "/public/img/ico/icons8_Favorite_32.png"   
+
+}
+
+function rates(value) {
+    (value == 0? value += 1: value = value)
+    let rate = `<img class="smalStar" src="/public/img/ico/icons8_starw_16.png" alt="">`
+    for (let i = 1; i < 5; i++) {
+        if(i == value){
+            rate += `<img class="smalStar" src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
+        }
+        else if(i < value){
+
+            rate += `<img class="smalStar" src="/public/img/ico/icons8_starw_16.png" alt="">`
+        }else{
+            rate += `<img class="smalStar" src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
+        }
+    }
+    return rate + `<span style="color: white;">${value}</span>`
+    
+}
     
     
-    
-    
-    
-    
-    
-    
+
     
     
     
