@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/public/styleSheet/default-components/circle-button.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
-    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/markOnMap.css">
+
     <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/status.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -21,6 +21,31 @@
 </head>
 <body>
     <div class="container-main">
+        <section id="containerPoupup">
+            <div class="btn-navigaor">
+                <button id="btnCloseQrcode" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
+                <button class="control-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
+            </div>
+            <div class="content-qrcode">
+                <img width="150px" height="150px" src="/public/img/ico/qr_code_48px.png" alt="">
+            </div>
+            <div class="container-help">
+                <p class="color-default-tomato">
+                    Não sabe oque fazer com o qrCode?
+                </p>
+                <p>
+                    1. Quando a sua pizza chegar <strong>mostre este Qrcode</strong> oa entregador
+                </p>
+                <p>
+                    2. O entregador irá <strong>escanear</strong> o <strong>seu QRcode</strong>
+                </p>
+                <p>
+                    3. E a sua entraga estará <strong>concluída</strong>
+                </p>
+
+            </div>
+    
+        </section>
         <div class="btn-navigaor">
             <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
             <button class="control-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
@@ -43,6 +68,21 @@
 
         </div>
         <div class="content-float-info">
+            <div class="container-Status">
+                <div class="icon">
+                    <img id="deliver_status" src="/public/img/ico/icons8_scooter_32.png" alt="">
+                    
+
+                </div>
+                <div class="content-progressbar">
+                    <div class="content-progress">
+
+                    </div>
+
+                </div>
+                <h6 class="color-default-tomato">Estimativa de entrega em 14min</h6>
+
+            </div>
             <div class="content-from-to">
                 <div class="content-from">
                     <div class="content-input">
@@ -55,7 +95,7 @@
                     </div>
     
                 </div>
-                <img class="arrow" src="/public/img/ico/icons8_down_right_32.png" alt="">
+                <!--<img class="arrow" src="/public/img/ico/icons8_down_right_32.png" alt=""> -->
                 <div class="content-to">
                     <div class="content-input">
                         <img class="icoLocation" src="/public/img/ico/icons8_Location_32.png" alt="">
@@ -80,20 +120,113 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script>
     const btnGetUserLocation = document.getElementById("btnGetUserLocation")
+    const containerPoupup = document.getElementById("containerPoupup")
+    const btnCloseQrcode = document.getElementById("btnCloseQrcode")
+    const btnQrCode = document.getElementById("btnQrCode")
     const btnNext = document.getElementById("btnNext")
     const  map = L.map('map' , { zoomControl: false})
+    var markers = []
+    var userPosition 
+    const storeLocation = [
+        { name: "Loja Luanda, cuca", latitude: -8.874501509225118, longitude:13.267465560202256},
+        { name: "Loja Luanda, Mutamba", latitude: -8.861703872168524, longitude:13.256954935368412},
+        { name: "Loja Luanda, São paulo", latitude: -8.8638708676955, longitude:13.310945034027101},
+        { name: "Loja Luanda, Vila lice", latitude: -8.8638708676955, longitude:13.310945034027101},
+        { name: "Loja Luanda, Rangel", latitude: -8.830105088772035, longitude:13.231389510940373},
+        {name: "Loja Luanda, hoji ya henda", latitude: -8.944469891753569, longitude:13.203376220722623},
+        {name: "Loja Luanda, sambizanga", latitude: -9.004107265149681, longitude:13.378733891074784},
+        {name: "Loja Luanda, Cacuaco", latitude: -8.807649451287533, longitude:13.28190625172582},
+        {name: "Loja Luanda, prenda lote 22", latitude: -8.810034082707164, longitude:13.300906942749863},
+        {name: "Loja Luanda, mabor", latitude: -8.813680186021543, longitude:13.260207687230395},
+        {name: "Loja Luanda, Golf2", latitude: -8.909053466519461, longitude:13.24923715365702},
+
+    ]
+    renderMap()
+    getUserCurrentPosition()
+    addStoreLocation(storeLocation)
+    goToUserLocation()
+
     
-    navigator.geolocation.getCurrentPosition((position) => {
+
+
+    function renderMap() {
+        map.setView([0,0], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    }
+    function addStoreLocation(location) {
+        var iconStore = L.icon({
+          iconUrl: '/public/img/ico/icons8_shop_location_48.png',
+          iconSize: [32, 32], // Tamanho do ícone em pixels (largura, altura)
+        });
+        storeLocation.forEach(location => {
+            L.marker([location.latitude, location.longitude], {icon: iconStore})
+            .addTo(map)
+
+            haversineDistance(location.latitude, location.longitude, location.latitude, location.longitude)
+
+            
+            
+        })
+        
+    }
+    function traceRouter(lat1, lon1, lat2, lon2) {
+        // URL da API de roteamento do OSRM
+        var routeUrl = 'https://router.project-osrm.org/route/v1/driving/' + lon1 + ',' + lat1 + ';' + lon2 + ',' + lat2 + '?steps=true&geometries=geojson';
+
+        // Traçar a rota na camada de mapas
+        fetch(routeUrl)
+        .then(response => response.json())
+        .then(data => {
+            var route = L.geoJSON(data.routes[0].geometry, {
+            style: { color: 'red' }
+            }).addTo(map);
+        
+        // Ajustar o zoom do mapa para exibir a rota completa
+        map.fitBounds(route.getBounds());
+  });
+        
+    }
+
+    // Função para converter graus em radianos
+    function toRadians(degrees) {
+      return degrees * Math.PI / 180;
+    }
+
+    // Função para calcular a distância entre dois pontos usando a fórmula Haversine
+    function haversineDistance(lat1, lon1, lat2, lon2) {
+      var R = 6371; // raio da Terra em quilômetros
+      var dLat = toRadians(lat2 - lat1);
+      var dLon = toRadians(lon2 - lon1);
+      var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      var distance = R * c;
+      return distance;
+    }
+
+    function getUserCurrentPosition() {
+        navigator.geolocation.getCurrentPosition((position) => {
+            userPosition = {lat: position.coords.latitude, lon: position.coords.longitude}
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            map.setView([0,0], 13);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-            map.flyTo([latitude, longitude], 15);
-            L.marker([latitude, longitude]).addTo(map)
-          .bindPopup("Você está aqui!")
-          .openPopup();
-          
+            var iconUser = L.icon({
+              iconUrl: '/public/img/ico/icons8_user_location_48.png',
+              iconSize: [40, 40], // Tamanho do ícone em pixels (largura, altura)
+            });
+            map.flyTo([latitude, longitude], 14);
+            L.marker([latitude, longitude], {icon: iconUser})
+            .addTo(map)
+            .bindPopup("Voce está aqui", {closeOnClick: false})
+            .openPopup()
+            const  storeMoreNext  = moreNext(userPosition, storeLocation)
+            setTimeout(() => {
+                traceRouter(userPosition.lat, userPosition.lon,  storeMoreNext.coord.lat, storeMoreNext.coord.lon)    
+            }, 5000)
         })
+        
+    }
+    function goToUserLocation() {
         btnGetUserLocation.addEventListener("click", () => {
             navigator.geolocation.getCurrentPosition((position) => {
                 var latitude = position.coords.latitude;
@@ -102,11 +235,88 @@
                 L.marker([latitude, longitude]).addTo(map)
                 .bindPopup("Você está aqui!")
                 .openPopup();
+            })
         })
+    }
+
+
+    
+    
+    
+    function moreNext( obj, array) {
+        var distances = []
+        var storeMoreNext
+        let min = 0
+        let distance
+        function construtor(name, lat, lon, distance){
+            return {
+                name: name,
+                coord:{
+                    lat: lat,
+                    lon: lon
+                },
+                distance: distance
+            }
+        }
+        var store
+        for (let i = 0; i < array.length; i++) {
+            distance = haversineDistance(userPosition.lat, userPosition.lon , array[i].latitude, array[i].longitude)
+            if( i == 0){
+                min = distance 
+                storeMoreNext = construtor(array[i].name, array[i].latitude, array[i].longitude, min.toFixed(2))
+            }
+            if(distance < min){
+                min = distance
+                storeMoreNext = construtor(array[i].name, array[i].latitude, array[i].longitude, min.toFixed(2))
+            }
+        }            
         
+        return storeMoreNext
+    }
+    
+
+    function haversineDistance(lat1, lon1, lat2, lon2) {
+        const earthRadius = 6371; // raio médio da Terra em quilômetros
+
+        const dLat = toRadians(lat2 - lat1);
+        const dLon = toRadians(lon2 - lon1);
+
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        
+        const distance = earthRadius * c;
+        return distance;
+}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   /* map.on('click', function(event) {
+      var lat = event.latlng.lat; // Latitude do ponto clicado
+      var lng = event.latlng.lng; // Longitude do ponto clicado
+            alert("latitude: "+lat+ "longitude:" +lng)
+      // Adicione um marcador no ponto clicado
+      L.marker([lat, lng]).addTo(map);
+    });*/
+
+       
+    btnQrCode.addEventListener("click", () => {
+        containerPoupup.style.display = "flex"
+        containerPoupup.style.display.transition = "2s"
     })
-    btnNext.addEventListener("click", () => {
-        window.location.href = "/views/methodPayment.html"
+    btnCloseQrcode.addEventListener("click", () =>{
+        containerPoupup.style.display = "none"
     })
   </script>
 </body>

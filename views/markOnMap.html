@@ -34,11 +34,12 @@
                     <h5 class="color-white">Angola, Luanda, Cuca</h5>
                 </div>
                 <button style=" display: flex; justify-content: center;
-                 align-items: center; background-color: white; width: 40px; height: 40px;" class="circle-btn-silver"><img src="/public/img/ico/icons8_phone_32.png" alt=""></button>
+                 align-items: center; background-color: tomato; width: 40px; height: 40px;" class="circle-btn-silver"><img src="/public/img/ico/icons8_phone_32.png" alt=""></button>
             </div>
 
         </div>
         <div class="content-float-info">
+            
             <div class="content-from-to">
                 <div class="content-from">
                     <div class="content-input">
@@ -73,7 +74,20 @@
     const btnGetUserLocation = document.getElementById("btnGetUserLocation")
     const btnNext = document.getElementById("btnNext")
     const  map = L.map('map' , { zoomControl: false})
-    
+    const storeLocation = [
+        { name: "Loja Luanda, cuca", latitude: -8.874501509225118, longitude:13.267465560202256},
+        { name: "Loja Luanda, Mutamba", latitude: -8.861703872168524, longitude:13.256954935368412},
+        { name: "Loja Luanda, São paulo", latitude: -8.8638708676955, longitude:13.310945034027101},
+        { name: "Loja Luanda, Vila lice", latitude: -8.8638708676955, longitude:13.310945034027101},
+        { name: "Loja Luanda, Rangel", latitude: -8.830105088772035, longitude:13.231389510940373},
+        {name: "Loja Luanda, hoji ya henda", latitude: -8.944469891753569, longitude:13.203376220722623},
+        {name: "Loja Luanda, sambizanga", latitude: -9.004107265149681, longitude:13.378733891074784},
+        {name: "Loja Luanda, Cacuaco", latitude: -8.807649451287533, longitude:13.28190625172582},
+        {name: "Loja Luanda, prenda lote 22", latitude: -8.810034082707164, longitude:13.300906942749863},
+        {name: "Loja Luanda, mabor", latitude: -8.813680186021543, longitude:13.260207687230395},
+        {name: "Loja Luanda, Golf2", latitude: -8.909053466519461, longitude:13.24923715365702},
+
+    ]
     navigator.geolocation.getCurrentPosition((position) => {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
@@ -83,8 +97,20 @@
             L.marker([latitude, longitude]).addTo(map)
           .bindPopup("Você está aqui!")
           .openPopup();
+          addStoreLocation(storeLocation)
           
         })
+        function addStoreLocation(location) {
+        var iconStore = L.icon({
+          iconUrl: '/public/img/ico/icons8_shop_location_48.png',
+          iconSize: [32, 32], // Tamanho do ícone em pixels (largura, altura)
+        });
+        storeLocation.forEach(location => {
+            L.marker([location.latitude, location.longitude], {icon: iconStore})
+            .addTo(map)
+        })
+        
+    }
         btnGetUserLocation.addEventListener("click", () => {
             navigator.geolocation.getCurrentPosition((position) => {
                 var latitude = position.coords.latitude;

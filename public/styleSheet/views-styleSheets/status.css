@@ -9,3 +9,153 @@
     background-color: transparent;
 
 }
+.container-Status{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+.content-progressbar{
+    margin-bottom: 5px;
+    width: 70%;
+    height: 6px;
+    border-radius: 20px;
+    background-color: silver;
+}
+.content-progress{
+    width: 25%;
+    height: 6px;
+    border-radius: 20px;
+    background-color: tomato;
+}
+.arrow{
+    height: 10px;
+}
+.icon{
+    width: 70%;
+    margin-top: 10px;
+}
+#deliver_status{
+    width: 30px;
+    height: 30px;
+    margin-left: 12%;
+}
+
+#containerPoupup{
+    background-color: #f8f8f8;
+    display: none;
+    z-index: 2000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.content-qrcode{
+    background-color: white;
+    border-radius: 20px;
+    width: 65%;
+    height: 200px;
+    box-shadow: 0px 4px 3px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p{
+    color: rgb(133, 133, 133);
+    font-size: 14px;
+}
+strong{
+    color: rgb(55, 55, 55);
+}
+.container-help{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-navigaor{top: 0px;
+    display: flex;
+    width: 100%;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+}
+#map{
+width: 100%;
+height: 100vh;
+}
+.container-float-info{
+    width: 90%;
+    height: 43vh;
+    border-radius: 50px;
+    bottom: 30px;
+    background-color: tomato;
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+}
+.content-float-info{
+    width: 100%;
+    height: 34vh;
+    border: 2px solid white;
+    border-radius: 50px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+
+}
+.content-from-to{
+    
+}
+.content-from{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrow{
+    transform: rotate(45deg);
+}
+.content-to{
+    display: flex;
+
+}
+.content-input{
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+.store{
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.small-photo{
+    width: 43px;
+    height: 43px;
+    border-radius: 100%;
+}
