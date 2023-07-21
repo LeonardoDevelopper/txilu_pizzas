@@ -29,7 +29,7 @@
         </section>
         <div class="container-header">
             <div class="btn-navigaor">
-                <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
+                <a href="/views/home.html"><button id="btnBack" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
             </div>
             <h3 class="color-default-tomato">Nossos métodos de pagamento</h4>
         </div>
@@ -68,6 +68,8 @@
         const containerPoupup = document.getElementById("containerPoupup")
         radio.addEventListener("change",() =>{
             btnDone.style.backgroundColor = "tomato"
+            btnDone.setAttribute("class", "radius-btn-active")
+
             btnDone.addEventListener("click", () => {
                 containerPoupup.style.display = "flex"
                 setTimeout(() => {

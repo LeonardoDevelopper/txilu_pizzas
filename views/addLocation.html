@@ -20,8 +20,8 @@
     <div class="container-main">
         <div class="container-header">
             <div class="btn-navigaor">
-                <a href="/views/home.html"><button id="btnBack" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
-                <a href="/views/markOnMap.html"><button class="control-button" id="buyButton"><img src="/public/img/ico/icons8_map_marker_32.png" alt=""></button></a>
+                <a href="/views/home.html"><button id="btnBack" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
+                <a href="/views/markOnMap.html"><button class="navigatio-button" id="buyButton"><img src="/public/img/ico/icons8_map_marker_32.png" alt=""></button></a>
             </div>
             
         </div>
@@ -84,7 +84,7 @@
                         
                     </div>
                 </div>
-                <div onclick="selectDeliver(this)" class="content-favorites-delivers">
+                <div  onclick="selectDeliver(this)" class="content-favorites-delivers">
                     <div class="photo-name">
                         <img class="small-photo" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg" alt="">
                         <h5 class="color-white">Leonardo Jorge</h6>
@@ -116,6 +116,8 @@
         var localSelected = false;
         function selectLocal(element){
             nextStep.style.backgroundColor = "tomato"
+            nextStep.setAttribute("class", "radius-btn-active")
+
             nextStep.addEventListener("click", () => {
                     window.location.href = "/views/methodPayment.html"
                 })

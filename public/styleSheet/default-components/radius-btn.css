@@ -6,3 +6,15 @@
     margin-top: 5px;
     color: tomato;
 }
+.radius-btn-active{
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    margin-top: 5px;
+    color: tomato;
+}
+.radius-btn-active:active{
+    transform: scale(0);
+    transition: all 1s;
+}

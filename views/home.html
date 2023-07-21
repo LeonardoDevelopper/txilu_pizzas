@@ -20,8 +20,8 @@
     <div class="container-main">
         <div class="container-header">
             <div class="btn-navigaor">
-                <button class="control-button"><img src="/public/img/ico/icons8_squared_menu_32.png" alt=""></button>
-                <a href="/views/cart.html"><button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button></a>
+                <button onclick="openMenu()" class="navigatio-button"><img src="/public/img/ico/icons8_squared_menu_32.png" alt=""></button>
+                <a href="/views/cart.html"><button class="navigatio-button"><img src="/public/img/ico/icons8_shopping_cartt_32.png" alt=""></button></a>
             </div>
             <div class="content-location">
                 <img src="/public/img/ico/icons8_Location_32.png" alt="">
@@ -71,13 +71,73 @@
         <h4 class="color-default-tomato">Promoção</h4>
     </div>
     <nav id="containerInfo" class="container-info">
-        <div class="controls">
-            <button id="btnCloseInfo" onclick="closeInfo()" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
-            <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
-        </div>
-        
-    </div>
+       
     </nav>
+    <section class="container-menu">
+        <div class="container-header">
+            <div class="btn-navigaor">
+                <button onclick="openMenu()" class="navigatio-button"><img src="/public/img/ico/icons8_squared_menu_32.png" alt=""></button>
+                <a href=""><button class="navigatio-button"><img src="" alt=""></button></a>
+            </div>
+        </div>
+        <div class="container-user-info">
+            <div class="content-user-photo">
+
+            </div>
+            <div class="content-user-info">
+                <p>Nome: Leonardo Jorge</p>
+                <p>Email: lonardo@gmail.com</p>
+                <p>ID: 2bd-h7db7d-f8d-8fdfg-dd</p>
+                <p>Numero 956096907</p>
+
+            </div>
+
+        </div>
+        <div class="container-user-order-info">
+            <div class="content-user-info-row">
+                <div class="content-user-info">
+                    <img src="" alt="">
+                    <h5>Historico</h5>
+                </div>
+                <div class="content-user-info">
+
+                </div>
+                <div class="content-user-info">
+                    <div class="container-circle">
+                        <div class="content-circle">
+                            <h4>0%</h4>
+                        
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="content-view-order">
+                <img src="" alt="">
+                <div class="view-order-info">
+                    <h4>Pedidos</h4>
+                    <h6>Faça mais pedidos para receber descontos</h6>
+                </div>
+                <h3>7</h3>
+            </div>
+            <div class="content-user-info-row">
+                <div class="content-mannager-info">
+                    <img src="" alt="">
+                    <h5>Favoritos</h5>
+                </div>
+                <div class="content-mannager-info">
+                    <img src="" alt="">
+                    <h5>Locais de entrega</h5>
+                </div>
+                <div class="content-mannager-info">
+                    <img src="" alt="">
+                    <h5>Cartões de credito</h5>
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
         const imgSuge = document.getElementById("img-suge")
         const containerAllPizza = document.getElementById("containerAllPizza");
@@ -94,32 +154,32 @@
                     {
                         category: "vegana",
                         pizzas: [
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza1.png" , nome: "pizza Margarine", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza2.png" , nome: "pizzatomato", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza3.png" , nome: "pizza de atum", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza4.png" , nome: "pizza omelete", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza5.png" , nome: "pizza de pão", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza1.png" , nome: "pizza Margarine", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza2.png" , nome: "pizzatomato", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza3.png" , nome: "pizza de atum", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza4.png" , nome: "pizza omelete", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza5.png" , nome: "pizza de pão", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
                         ]
 
                     },
                     {
                         category: "Vegetariana",
                         pizzas: [
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza6.png" , nome: "pizza de marisco", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza7.png" , nome: "pizza de camarão", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza8.png" , nome: "pizza vegana", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza9.jpg" , nome: "pizza de sardinha", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza10.jpg" , nome: "pizza de ovo", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza6.png" , nome: "pizza de marisco", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza7.png" , nome: "pizza de camarão", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza8.png" , nome: "pizza vegana", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza9.jpg" , nome: "pizza de sardinha", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza10.jpg" , nome: "pizza de ovo", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
                         ]
                     },
                     {
                         category: "Frutos do mar",
                         pizzas: [
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza11.jpg" , nome: "pizza de salomão", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza12.jpg" , nome: "pizza de Carne ", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza13.jpg" , nome: "pizza de queijo", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza14.jpg" , nome: "pizza de marisco", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
-                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza15.jpg" , nome: "pizza de Legumes", preco: parseInt(Math.random() * 10000), avaliacao: Math.random() * 6 , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza11.jpg" , nome: "pizza de salomão", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"},
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza12.jpg" , nome: "pizza de Carne ", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza13.jpg" , nome: "pizza de queijo", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza14.jpg" , nome: "pizza de marisco", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
+                            { id: parseInt(Math.random()* 9000), path: "/public/img/pizza/pizza15.jpg" , nome: "pizza de Legumes", preco: parseInt(Math.random() * 10000), avaliacao: parseInt(Math.random() * 6) , descricao: "Esse exemplo utiliza o pacote multer para lidar com o upload de imagens e o pacote mysql para se conectar ao banco de dados MySQL. O código assume que você já p"} ,
                         ]
                     }
 
@@ -140,7 +200,7 @@
                                 <h5 class="color-default-tomato">${pz.preco}, 00kz</h5>
                                 <!---<del><h6>${ (pz.preco - ( pz.preco * (parseInt(Math.random()*20)/100))) },00kz</h6></del>--->
                                 <div class="container-rate">
-                                    ${rates(parseInt(Math.random() *5))}
+                                    ${rates(pz.avaliacao)}
                                     
                                     <!---<img src="/public/img/ico/icons8_stars_16.png" alt="">-->
                                 </div>
@@ -167,6 +227,24 @@
                     }
                     return rate + `<span style="color: tomato;">${value}</span>` 
                 }
+                function ratesb(value) {
+                    const width = 15;
+                    const height = 15;
+                    (value == 0? value += 1: value = value)
+                    let rate = `<img style="width: ${width}; height: ${height}px" src="/public/img/ico/icons8_starw_16.png" alt="">`
+                    for (let i = 1; i < 5; i++) {
+                        if(i >= value){
+                            rate += `<img style="width: ${width}; height: ${height}px" src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
+                        }
+                        else if(i < value){
+
+                            rate += `<img style="width: ${width}; height: ${height}px" src="/public/img/ico/icons8_starw_16.png" alt="">`
+                        }else{
+                            rate += `<img style="width: ${width}; height: ${height}px" src="/public/img/ style="width: ${width}; height: ${height}px"ico/icons8_star_filleds_16.png" alt="">`
+                        }
+                    }
+                    return rate + `<span style="color: white;">${value}</span>` 
+                }
             containerAll.forEach(el => {
                 containerAllPizza.innerHTML += el      
             })
@@ -181,6 +259,7 @@
                 element.style.backgroundColor = "tomato"
                 price.innerHTML = "Total:" + (1200*element.id) + ", 00kz"
                 btnPedir.style.backgroundColor = "tomato"
+                btnPedir.setAttribute("class", "radius-btn-active")
 
             }
             function getInfo(element) {
@@ -196,49 +275,56 @@
                              
                             <div class="content-photo-name" style="background-image: url('${pz.path}');">
                             </div>
-                            <div class="controls">
-                                <div class="c">
-                                    <button id="btnCloseInfo" onClick="closeInfo()" class="control-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
-                                <button class="control-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
-                                    </div>
-                                
-                                <div class="focus">
-                                    <img class="photoPizza" src="${pz.path}" alt="">
-                                    </div>
-                                    </div>
-                                    <div id="contentInfo" class="content-info">
-                                    <div class="content-name">
-                                        <h2 class="color-default-tomato">${pz.nome}</h3>
-
-                                    </div>
-                                    <div id="containerSize" class="container-size">
-                                        `+
-                                        tamanho.map((el) => { return(
-                                        `<div id="${el}" onClick ="select(this)" class="content-size">
-                                            <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
-                                            <h6 class="color-white">${el*4}, kz</h5>
-                                            <h6 class="color-white">${el} pedaços</h6>
-                                        </div>`)
-                                        }) + `
-                                    </div>
+                            <section class="container-info-tomato">
+                                <div class="content-name">
+                                    <h3 class="color-white">${pz.nome}</h3>
+                                    <div class="container-rate">
+                                                ${ratesb(pz.avaliacao)}                                    
+                                            </div>
+                                    <button onClick="addCart(this)" class="navigatio-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button>
                                     
-                                     <div class="content-price">
-                                         <h3 id="price" class="color-default-tomato">Total: ${pz.preco}, 00kz</h3>
-                                     </div>
-                                     <div class="more-button">
-                                         <button id="btnPedir"  class="radius-btn">pedir</button>
-                                     </div>
-                                     <div class="more-info">
-                                         <h3>Descrição</h3>
-                                         <h4 class="color-default-silver">
-                                             ${pz.descricao}
-                                         </h4>
-                                         <h3 class="color-default-tomato">avaliacao</h3>
-                                         <div class="container-rate">
-                                            ${rates(parseInt(pz.avaliacao))}                                    
+                                </div>
+                                <div class="controls">
+                                    <div class="c">
+                                        <button id="btnCloseInfo" onClick="closeInfo()" class="navigatio-button"><img src="/public/img/ico/icons8_delete_32.png" alt=""></button>
+                                    <a href="/views/cart.html"><button class="navigatio-button"><img src="/public/img/ico/icons8_shopping_cart_32.png" alt=""></button></a>
                                         </div>
-                                     </div>
-                             </div>`
+                                    
+                                    <div class="focus">
+                                        <img class="photoPizza" src="${pz.path}" alt="">
+                                        </div>
+                                        </div>
+                                        <div id="contentInfo" class="content-info">
+                                        
+                                        <div id="containerSize" class="container-size">
+                                            `+
+                                            tamanho.map((el) => { return(
+                                            `<div id="${el}" onClick ="select(this)" class="content-size">
+                                                <img width="40px" height="40px" src="/public/img/ico/icons8_pizzaw_32.png" alt="">
+                                                <h6 class="color-white">${el*4}, kz</h5>
+                                                <h6 class="color-white">${el} pedaços</h6>
+                                            </div>`)
+                                            }) + `
+                                        </div>
+                                        
+                                         <div class="content-price">
+                                             <h3 id="price" class="color-default-tomato">Preço: ${pz.preco}, 00kz</h3>
+                                         </div>
+                                         <div class="more-button">
+                                             <button id="btnPedir"  class="radius-btn">pedir</button>
+                                         </div>
+                                         <div class="more-info">
+                                             <h3>Descrição</h3>
+                                             <h4 class="color-default-silver">
+                                                 ${pz.descricao}
+                                             </h4>
+                                             <h3 class="color-default-tomato">avaliacao</h3>
+                                             <div class="container-rate">
+                                                ${rates(parseInt(pz.avaliacao))}                                    
+                                            </div>
+                                         </div>
+                                 </div>
+                            </section>`
                             }
                         })
                 })
@@ -285,6 +371,38 @@
                 document.getElementById("containerInfo").style.position = "fixed"
         })
         
+        let activado = true
+        function addCart(element) {
+            activado = !activado
+            if(!activado)
+                element.children[0].src = "/public/img/ico/icons8_shopping_cartp_32.png"
+            else
+                element.children[0].src = "/public/img/ico/icons8_shopping_cart_32.png"   
+        }
+
+
+
+
+
+
+        function openMenu() {
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 </body>

@@ -48,3 +48,27 @@ console.log("Distância:", distancia.toFixed(2), "quilômetros");
   </script>
 </body>
 </html>
+
+
+
+
+
+
+function ratesb(value) {
+  const width = 30
+  const height = 30
+  (value == 0? value += 1: value = value)
+  let rate = `<img style="width: ${width}; height: ${height}px" src="/public/img/ico/icons8_starw_16.png" alt="">`
+  for (let i = 1; i < 5; i++) {
+      if(i == value){
+          rate += `<img style="width: ${width}; height: ${height}px" src="/public/img/ico/icons8_star_filleds_16.png" alt="">`
+      }
+      else if(i < value){
+
+          rate += `<img style="width: ${width}; height: ${height}px" src="/public/img/ico/icons8_starw_16.png" alt="">`
+      }else{
+          rate += `<img style="width: ${width}; height: ${height}px" src="/public/img/ style="width: ${width}; height: ${height}px"ico/icons8_star_filleds_16.png" alt="">`
+      }
+  }
+  return rate + `<span style="color: tomato;">${value}</span>` 
+}

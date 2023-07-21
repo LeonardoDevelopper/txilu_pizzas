@@ -63,6 +63,10 @@ width: 100%;
     overflow-x: scroll;
 
 }
+.content-local-delivery:active{
+    transform: scale(0);
+    transition: all 1s;
+}
 .content-local-delivery{
     background-color: silver;
     width: 80px;
@@ -87,6 +91,10 @@ width: 100%;
     display: flex;
     gap: 10px;
 
+}
+.content-favorites-delivers:active{
+    transform: scale(0);
+    transition: all 1s;
 }
 .content-favorites-delivers{
     background-color: silver;
