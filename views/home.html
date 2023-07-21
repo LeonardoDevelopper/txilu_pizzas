@@ -73,18 +73,18 @@
     <nav id="containerInfo" class="container-info">
        
     </nav>
-    <section class="container-menu">
+    <section id="containerMenu" class="container-menu">
         <div class="container-header">
             <div class="btn-navigaor">
-                <button onclick="openMenu()" class="navigatio-button"><img src="/public/img/ico/icons8_squared_menu_32.png" alt=""></button>
+                <button onclick="closeMenu()" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
                 <a href=""><button class="navigatio-button"><img src="" alt=""></button></a>
             </div>
         </div>
         <div class="container-user-info">
             <div class="content-user-photo">
-
+                <img src="/public/img/ico/icons8_user_64.png" alt="">
             </div>
-            <div class="content-user-info">
+            <div class="content-user-info1">
                 <p>Nome: Leonardo Jorge</p>
                 <p>Email: lonardo@gmail.com</p>
                 <p>ID: 2bd-h7db7d-f8d-8fdfg-dd</p>
@@ -96,8 +96,8 @@
         <div class="container-user-order-info">
             <div class="content-user-info-row">
                 <div class="content-user-info">
-                    <img src="" alt="">
-                    <h5>Historico</h5>
+                    <img width="40px" height="40px" src="/public/img/ico/icons8_order_history_48.png" alt="">
+                    <h6>Historico</h5>
                 </div>
                 <div class="content-user-info">
 
@@ -106,34 +106,33 @@
                     <div class="container-circle">
                         <div class="content-circle">
                             <h4>0%</h4>
-                        
-
                         </div>
 
                     </div>
+                    <h6>faça mais </h6>
                 </div>
 
             </div>
             <div class="content-view-order">
-                <img src="" alt="">
+                <img width="40px" height="40px" src="/public/img/ico/icons8_order_historyw_48.png" alt="">
                 <div class="view-order-info">
-                    <h4>Pedidos</h4>
+                    <h4 style="display: flex; justify-content: right;">Pedidos</h4>
                     <h6>Faça mais pedidos para receber descontos</h6>
                 </div>
-                <h3>7</h3>
+                <h2>7</h3>
             </div>
             <div class="content-user-info-row">
                 <div class="content-mannager-info">
-                    <img src="" alt="">
-                    <h5>Favoritos</h5>
+                    <img src="/public/img/ico/icons8_heartt_32.png" alt="">
+                    <h6>Favoritos</h5>
                 </div>
                 <div class="content-mannager-info">
-                    <img src="" alt="">
-                    <h5>Locais de entrega</h5>
+                    <img src="/public/img/ico/icons8_place_marker_48.png" alt="">
+                    <h6>Locais de entrega</h5>
                 </div>
                 <div class="content-mannager-info">
-                    <img src="" alt="">
-                    <h5>Cartões de credito</h5>
+                    <img src="/public/img/ico/icons8_card_exchange_48.png" alt="">
+                    <h6>Cartões de credito</h5>
                 </div>
             </div>
         </div>
@@ -146,6 +145,8 @@
         const containerSize = document.getElementById("containerSize") 
         const price = document.getElementById("price")
         const btnPedir = document.getElementById("btnPedir")
+        const containerMenu = document.getElementById("containerMenu")
+
         const tamanho = [ 6, 12,24 ]
         const pizza = 
             {
@@ -386,6 +387,10 @@
 
 
         function openMenu() {
+            containerMenu.style.display = "flex"
+        }
+        function closeMenu() {
+            containerMenu.style.display = "none"
             
         }
 

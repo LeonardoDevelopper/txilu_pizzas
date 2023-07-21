@@ -316,3 +316,121 @@ body{
     background-color: #f8f8f8;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 }
+.container-menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container-header{
+    top: 20px;
+}
+.container-user-info{
+    width: 90%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 10px;
+    background-color: tomato;
+    height: 25vh;
+
+}
+.content-user-photo{
+    padding: 10px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.338);
+}
+.content-user-info1{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.container-user-order-info{
+    width: 100%;
+    color: tomato;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.content-user-info-row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 10px;
+}
+.content-user-info{
+    display: flex;
+    width: 30%;
+    border-radius: 20px;
+    height: 100px;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+}
+.container-circle{
+    background-color: rgb(210, 206, 206);
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+}
+.view-order-info{
+    display: flex;
+    flex-direction: column;
+    grid-area: 10px;
+
+}
+.content-circle{
+    background-color: #ffffff;
+    width: 22px;
+    height: 22px;
+    padding: 10px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-view-order{
+    display: flex;
+    background-color: tomato;
+    color: white;
+    height: 70px;
+    width: 85%;
+    border-radius: 22px;
+    padding: 10px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content-mannager-info{
+    display: flex;
+    width: 36%;
+    border-radius: 20px;
+    height: 100px;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+.content-user-info-row{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 10px;
+}
