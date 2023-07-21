@@ -15,6 +15,6 @@
     color: tomato;
 }
 .radius-btn-active:active{
-    transform: scale(0);
+    transform: scale(1);
     transition: all 1s;
 }
