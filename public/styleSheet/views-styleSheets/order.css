@@ -1,0 +1,107 @@
+.container-main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+}
+.container-header{
+    top: 100px;
+display: flex;
+flex-direction: column;
+position: absolute;
+left: 50px;
+gap: 70px;
+}
+.btn-navigaor{
+}
+.container-controllers-list{
+    display: flex;
+    gap: 70px;
+    width: 100%;
+    color: tomato;
+}
+.content-how-many-orders{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+.content-agrup-order{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.container-order-list{
+    color: dimgray;
+    position: absolute;
+    top: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.container-order-list-column{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.content-order{
+    width: 340px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    height: 70px;
+}
+.container-groupBy{
+    display: none;
+    position: absolute;
+    margin: 0px;
+    top: 145px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+    border-radius: 15px;
+    justify-content: right;
+    flex-direction: column;
+}
+.pointer{
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    background-color: white;
+    width: 20px;
+    border-radius: 2px;
+    height: 20px;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 20px;
+    top: 5px;
+}
+.content-groupBy{
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    background-color: white;
+    width: 100%;
+    border-radius: 10px;
+    height: 70px;
+    position: absolute;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+#containerOrderInfo{
+    display: flex;
+    position: absolute;
+    top: 0px;
+    z-index: 100;
+}

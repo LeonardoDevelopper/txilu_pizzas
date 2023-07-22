@@ -14,15 +14,256 @@
     <link rel="stylesheet" href="/public/styleSheet/default-components/circle-button.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/status.css">
+    <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/order.css">
+
 </head>
-<body>
+<body style="background-color: #f8f8f8;">
     <div class="container-main">
         <div class="container-header">
             <div class="btn-navigaor">
-                <button onclick="openMenu()" class="navigatio-button"><img src="/public/img/ico/icons8_squared_menu_32.png" alt=""></button>
+                <a style="position:relative; top: 0px;" href="/views/home.html"><button  class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
                 <button class="navigatio-button"></button>
             </div>
+            <div class="container-controllers-list">
+                <div class="content-how-many-orders">
+                    <h3>Pedidos</h3>
+                    <h5 style="background-color: tomato; color: white; border-radius: 100%; padding: 9px;" >17</h4>
+                </div>
+                <div class="content-agrup-order">
+                    <h4 class="color-default-silver">Ordenar por</h4>
+                    <button class="navigatio-button" onclick="openGroupBy()"> <img src="/public/img/ico/icons8_list_4.ico" alt=""></button>
+                    <div id="containerGroupBy" class="container-groupBy">
+                        <div class="pointer">
+                        </div>
+                        <div class="content-groupBy">
+                            <h5>Dia</h4>
+                            <h5>Semana</h4>
+                            <h5>Mês</h4>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <div id="containerOrderList" class="container-order-list">
+            
+            
         </div>
     </div>
+    <section id="containerOrderInfo">
+        <div class="btn-navigaor">
+            <button id="btnCloseOrderInfo" onclick="closeInfo()" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
+            <button class="navigatio-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
+        </div>
+        <div class="content-from-to2">
+            <h3 class="title">Pontos</h3>
+            <div class="content-from">
+                <div class="content-input2">
+                    <img class="icoLocation" src="/public/img/ico/icons8_shop_32.png" alt="">
+                    <div class="content-txt">
+                        <h6 class="color-default-silver">Nossa loja mais proxima</h4>
+                        <h5 class="color-default-tomato">Luanda, cuca</h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <img style=" margin-left: -270px; transform: rotate(45deg);" src="/public/img/ico/icons8_down_right_32.png" alt="">
+            <div class="content-to">
+                <div class="content-input2">
+                    <img class="icoLocation" src="/public/img/ico/icons8_Location_32.png" alt="">
+                    <div class="content-txt">
+                        <h6 class="color-default-silver">Voce</h4>
+                        <h5 class="color-default-tomato">Sua localização actual</h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-order-products">
+            <h3 class="title">Produtos</h3>
+            <div class="container-order-products-row">
+                <div class="content-order-product">
+                    <div class="product-info">
+                        <div class="product-photo">
+                            <img style="margin: 0px;width: 70px; height: 70px;"src="/public/img/pizza/pizza20.jpeg" alt="">
+                        </div>
+                        <div class="product-sizes">
+                            <h6>tam: 24p</h4>
+                            <h6>Qunt: x3</h4>
+                            <h6>peso: 0.4kg</h4>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h6 class="color-default-tomato">pizza margarine</h5>
+
+                    </div>
+                </div>
+                <div class="content-order-product">
+                    <div class="product-info">
+                        <div class="product-photo">
+                            <img style="margin: 0px;width: 70px; height: 70px;"src="/public/img/pizza/pizza20.jpeg" alt="">
+                        </div>
+                        <div class="product-sizes">
+                            <h6>tam: 24p</h4>
+                            <h6>Qunt: x3</h4>
+                            <h6>peso: 0.4kg</h4>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h6 class="color-default-tomato">pizza margarine</h5>
+
+                    </div>
+                </div>
+                <div class="content-order-product">
+                    <div class="product-info">
+                        <div class="product-photo">
+                            <img style="margin: 0px;width: 70px; height: 70px;"src="/public/img/pizza/pizza20.jpeg" alt="">
+                        </div>
+                        <div class="product-sizes">
+                            <h6>tam: 24p</h4>
+                            <h6>Qunt: x3</h4>
+                            <h6>peso: 0.4kg</h4>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h6 class="color-default-tomato">pizza margarine</h5>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-deliver">
+            <h3 class="title">Entregador</h3>
+            <div class="content-deliver">
+                <div class="orders">
+                    <h4 class="color-default-silver">Entregas</h4>
+                    <h2 class="color-default-tomato">23</h2>
+                </div>
+                <div class="info">
+                    <h4 class="color-default-tomato">Leonardo Jorge</h4>
+                    <div id="contentRate" class="container-rate">
+                        
+                        
+                    </div>
+                </div>
+                <div class="photo">
+                    <img style="border-radius: 100%;" width="60px" height="60px" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+        <div class="container-payment">
+            <h3 class="title">Pagamento</h3>
+            <div class="content-total">
+                <h3 class="color-default-silver">Total: </h3>
+                <h3 class="color-default-tomato">7340, 00kz</h3>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        const userHistoric = [
+            {
+                date: "Este mês"
+                ,
+                products:[
+                    { name: "pizza Margarine",date: "2023-07-21"},
+                    { name: "pizza de marisco" ,date: "2023-07-21"},
+                    { name: "pizza tomato" ,date: "2023-07-21"},
+                    { name: "pizza omelete" ,date: "2023-07-21"},
+                    { name: "pizza de pão" ,date: "2023-07-21"},
+                    { name: "pizza de atum" ,date: "2023-07-21"},
+                ]
+            },
+            {
+                date: "Este mês"
+                ,
+                products:[
+                    { name: "pizza Margarine",date: "2023-07-21"},
+                    { name: "pizza de marisco" ,date: "2023-07-21"},
+                    { name: "pizza tomato" ,date: "2023-07-21"},
+                    { name: "pizza omelete" ,date: "2023-07-21"},
+                    { name: "pizza de pão" ,date: "2023-07-21"},
+                    { name: "pizza de atum" ,date: "2023-07-21"},
+                ]
+            },
+            {date: "Este mês"
+                ,
+                products:[
+                    { name: "pizza Margarine",date: "2023-07-21"},
+                    { name: "pizza de marisco" ,date: "2023-07-21"},
+                    { name: "pizza tomato" ,date: "2023-07-21"},
+                    { name: "pizza omelete" ,date: "2023-07-21"},
+                    { name: "pizza de pão" ,date: "2023-07-21"},
+                    { name: "pizza de atum" ,date: "2023-07-21"},
+                ]
+            }
+        ]
+        const containerGroupBy = document.getElementById("containerGroupBy")
+        var active = false
+        const containerOrderList = document.getElementById("containerOrderList")
+        const containerOrderInfo = document.getElementById("containerOrderInfo")
+
+        
+        
+        
+        userHistoric.forEach((el) => {           
+            containerOrderList.innerHTML += 
+            ` <div class="container-order-list-column">
+                    <h4 class="color-default-tomato" >${el.date}</h4>`
+                    +el.products.map((pz) => {
+                        return (
+                            `<div onClick="openOrderInfo()" class="content-order">
+                                <h5>${pz.name}, pizza napolitana</h5>
+                                <h5>${pz.date}</h5>
+                            </div>`
+                        )
+            })
+        })
+
+        
+
+        function openOrderInfo() {
+            containerOrderInfo.style.display = "flex"
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function openGroupBy() {
+            active = !active
+            if(active)
+                containerGroupBy.style.display = "flex"
+            else
+                containerGroupBy.style.display = "none"
+        }
+        function closeInfo() {
+                
+            containerOrderInfo.style.display = "none"
+        }
+
+
+
+
+
+
+    </script>
 </body>
 </html>
