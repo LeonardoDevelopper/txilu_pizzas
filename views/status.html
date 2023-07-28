@@ -21,6 +21,33 @@
 </head>
 <body>
     <div class="container-main">
+        <section id="containerRateDeliver">
+            <div class="containerDeliverRate">
+                <h3 class="color-default-tomato">Avaliação do entregador</h3>
+                <img style="width: 90px; height: 90px; border-radius: 100%;" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg
+                " alt="">
+                <h4 class="color-default-tomato">Leonardo Jorge</h4>
+                <div id="value">
+                    <img id="1" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="2" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="3" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="4" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="5" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                     
+                </div>
+                <button onclick="sendRate()" class="radius-btn" style="height: 50px; background-color: tomato; color: white; ">Enviar</button>
+        
+            </div>
+        </section>
+        <section id="containerPoupupLoader">
+            <div class="content-loading">
+                <h3 class="color-white">
+                    Enviando avaliação
+                </h3>
+                <img class="loading" src="/public/img/ico/Dual Ring-1s-200px.gif" alt="">
+            </div>
+        
+        </section>
         <section id="containerPoupup">
             <div class="btn-navigaor">
                 <button id="btnCloseQrcode" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
@@ -173,7 +200,7 @@
             </div>
         </section>
         <div class="btn-navigaor">
-            <a href="/views/home.html"><button id="btnBack" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
+            <a href=""><button id="btnBack" class="navigatio-button"><img src="" alt=""></button></a>
             <button class="navigatio-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
         </div>
         <div id="map">
@@ -312,6 +339,15 @@
         })
         
     }
+    function valueRate(element) {
+    for (let i = 0 ; i < 5 ; i++) {
+        value.children[i].src ="/public/img/ico/icons8_starb_32.png"
+    }
+    for (let i = 0 ; i < element.id ; i++) {
+        value.children[i].src ="/public/img/ico/icons8_starp_32.png"
+    }       
+}
+
     function traceRouter(lat1, lon1, lat2, lon2) {
         // URL da API de roteamento do OSRM
         var routeUrl = 'https://router.project-osrm.org/route/v1/driving/' + lon1 + ',' + lat1 + ';' + lon2 + ',' + lat2 + '?steps=true&geometries=geojson';
@@ -368,6 +404,25 @@
             }, 5000)
         })
         
+    }
+    function sendRate() {
+        const containerPoupupLoader = document.getElementById("containerPoupupLoader")
+        containerPoupupLoader.style.display = "flex"
+            setTimeout(() => {
+                containerPoupupLoader.innerHTML = `
+                    <div class="content-loading">
+                        <h3 class="color-white">
+                            Avaliação enviada com sucesso </br>
+                            Sua compra está completa!
+                        </h3>
+                        <h4></h4>
+                        <img class="loading" src="/public/img/ico/icons8_ok_48.png" alt="">
+                    </div>` 
+                    setTimeout(() => {
+                        window.location.href = "/views/home.html"
+
+                    }, 3000)
+                }, 4000);
     }
     function goToUserLocation() {
         btnGetUserLocation.addEventListener("click", () => {
@@ -475,11 +530,15 @@ function rates(value) {
       // Adicione um marcador no ponto clicado
       L.marker([lat, lng]).addTo(map);
     });*/
-
+    const containerRateDeliver = document.getElementById("containerRateDeliver")
        
     btnQrCode.addEventListener("click", () => {
         containerPoupup.style.display = "flex"
         containerPoupup.style.display.transition = "2s"
+        setTimeout(() => {
+            containerRateDeliver.style.display = "flex"
+            
+        }, 5000)
     })
     btnCloseQrcode.addEventListener("click", () =>{
         containerPoupup.style.display = "none"

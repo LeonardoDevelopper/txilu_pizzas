@@ -91,10 +91,14 @@
     navigator.geolocation.getCurrentPosition((position) => {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
+            var iconUser = L.icon({
+              iconUrl: '/public/img/ico/icons8_user_location_48.png',
+              iconSize: [40, 40], // Tamanho do ícone em pixels (largura, altura)
+            });
             map.setView([0,0], 13);
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
             map.flyTo([latitude, longitude], 15);
-            L.marker([latitude, longitude]).addTo(map)
+            L.marker([latitude, longitude], {icon: iconUser}).addTo(map)
           .bindPopup("Você está aqui!")
           .openPopup();
           addStoreLocation(storeLocation)
