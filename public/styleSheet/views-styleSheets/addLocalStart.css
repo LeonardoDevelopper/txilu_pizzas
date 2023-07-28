@@ -1,0 +1,47 @@
+.container-main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.container-column-data{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.content-data{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+.imgData{
+    width: 25px;
+    height: 25px;
+}
+.content-btnData{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+span{
+    color: tomato;
+}
+input[type="radio"]{
+    width: 17px;
+    height: 17px;
+    color: tomato;
+    background-color: tomato;
+}
+table{
+    width: 100%;
+    
+}
+.center{
+    text-align: center;
+}
+td{
+    width: 85px;
+    height: 40px;
+}
