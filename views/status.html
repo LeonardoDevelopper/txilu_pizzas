@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/public/styleSheet/default-components/circle-button.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/radius-btn.css">
     <link rel="stylesheet" href="/public/styleSheet/default-components/control-button.css">
-
     <link rel="stylesheet" href="/public/styleSheet/views-styleSheets/status.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -46,6 +45,34 @@
             </div>
     
         </section>
+        <section id="containerPoupupLoader">
+            <div class="content-loading">
+                <h3 class="color-white">
+                    Enviando avaliação
+                </h3>
+                <img class="loading" src="/public/img/ico/Dual Ring-1s-200px.gif" alt="">
+            </div>
+    
+        </section>
+        <section id="containerRateDeliver">
+            <div class="containerDeliver-rate">
+                <h3 class="color-default-tomato">Avaliação do entregador</h3>
+                <img style="width: 90px; height: 90px; border-radius: 100%;" src="/public/img/people/Red-Skull-Allied-Charge-on-Hydra-Premium-Format-01.jpg
+                " alt="">
+                <h4 class="color-default-tomato">Leonardo Jorge</h4>
+                <div id="value">
+                    <img id="1" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="2" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="3" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="4" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                    <img id="5" class="imgRate" onclick="valueRate(this)" src="/public/img/ico/icons8_starb_32.png" alt="">
+                     
+                </div>
+                <button id="btnSendRate" class="radius-btn" style="height: 50px; background-color: tomato; color: white; ">Enviar</button>
+
+            </div>
+        </section>
+        
         <section id="containerCall">
             
             <div class="content-info">
@@ -62,7 +89,7 @@
         <section id="containerOrderInfo">
             <div class="btn-navigaor">
                 <button id="btnCloseOrderInfo" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button>
-                <button class="navigatio-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
+                <button onclick="goToUserLocation()" class="navigatio-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
             </div>
             <div class="content-from-to2">
                 <h3 class="title">Pontos</h3>
@@ -173,8 +200,8 @@
             </div>
         </section>
         <div class="btn-navigaor">
-            <a href="/views/home.html"><button id="btnBack" class="navigatio-button"><img src="/public/img/ico/icons8_Close_32.png" alt=""></button></a>
-            <button class="navigatio-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
+            <a href=""><button id="btnBack" class="navigatio-button"><img src="" alt=""></button></a>
+            <button onclick="goToUserLocation()" class="navigatio-button" id="btnGetUserLocation"><img src="/public/img/ico/icons8_location_update_32.png" alt=""></button>
         </div>
         <div id="map">
           
@@ -262,6 +289,7 @@
     const btnCloseOrderInfo = document.getElementById("btnCloseOrderInfo")
     const containerOrderInfo = document.getElementById("containerOrderInfo")
     const contentRate = document.getElementById("contentRate")
+    const containerRateDeliver = document.getElementById("containerRateDeliver")
 
 
 
@@ -370,6 +398,7 @@
         
     }
     function goToUserLocation() {
+        const btnGetUserLocation = document.getElementById("btnGetUserLocation")
         btnGetUserLocation.addEventListener("click", () => {
             navigator.geolocation.getCurrentPosition((position) => {
                 var latitude = position.coords.latitude;
@@ -480,6 +509,9 @@ function rates(value) {
     btnQrCode.addEventListener("click", () => {
         containerPoupup.style.display = "flex"
         containerPoupup.style.display.transition = "2s"
+        setTimeout( () => {
+            containerRateDeliver.style.display = "flex"
+        }, 3000)
     })
     btnCloseQrcode.addEventListener("click", () =>{
         containerPoupup.style.display = "none"
@@ -499,5 +531,34 @@ function rates(value) {
         containerCall.style.display = "none"
 
     }
+    const value = document.getElementById("value")
+    function valueRate(element) {
+        for (let i = 0 ; i < 5 ; i++) {
+            value.children[i].src ="/public/img/ico/icons8_starb_32.png"
+        }
+        for (let i = 0 ; i < element.id ; i++) {
+            value.children[i].src ="/public/img/ico/icons8_starpb_32.png"
+        }       
+    }
+
+    const btnSendRate = document.getElementById("btnSendRate")
+    const containerPoupupLoader = document.getElementById("containerPoupupLoader")
+
+    btnSendRate.addEventListener('click', () => {
+        containerPoupupLoader.style.display = "flex"
+                setTimeout(() => {
+                    containerPoupupLoader.innerHTML = `
+                        <div class="content-loading">
+                            <h3 class="color-white">
+                                Avaliação enviada com sucesso
+                            </h3>
+                            <img class="loading" src="/public/img/ico/icons8_ok_48.png" alt="">
+                        </div>` 
+                        setTimeout(() => {
+                            //window.location.href = "/views/home.html"
+    
+                        }, 3000)
+                    }, 4000);
+    })
   </script>
 </body>
